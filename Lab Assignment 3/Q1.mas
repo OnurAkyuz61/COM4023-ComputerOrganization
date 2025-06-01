@@ -1,0 +1,14 @@
+/ MARIE program to print the first two letters of the name "Onur"
+/ First letter: O, ASCII: 79 (decimal), 4F (hex)
+/ Second letter: n, ASCII: 110 (decimal), 6E (hex)
+
+        ORG     100     / Start program at address 100
+        LOAD    CHAR1   / Load first character (O)
+        OUTPUT          / Display it
+        LOAD    CHAR2   / Load second character (n)
+        OUTPUT          / Display it
+        HALT            / End program
+
+CHAR1,  HEX     4F      / ASCII for 'O'
+CHAR2,  HEX     6E      / ASCII for 'n'
+        END

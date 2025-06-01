@@ -1,0 +1,37 @@
+/ MARIE program to multiply X by N using recursive summation
+/ Example: X=5, N=3 => 5*3 = 5+5+5 = 15
+
+        ORG     100             / Start program at address 100
+        INPUT                   / Input X (base number)
+        STORE    X              / Store X
+        INPUT                   / Input N (number of iterations)
+        STORE    N              / Store N
+        LOAD    ZERO            / Initialize result to 0
+        STORE   RESULT          / Store initial result
+        JNS     MULT            / Jump to multiplication subroutine
+        LOAD    RESULT          / Load the final result
+        OUTPUT                  / Display the result
+        HALT                    / End program
+
+/ Multiplication subroutine using recursive summation
+MULT,   HEX     0               / Subroutine return address
+        LOAD    N               / Load N
+        SUBT    ONE             / Decrement N by 1
+        SKIPCOND 000            / Skip if N < 0 (we're done)
+        JUMP    CONTINUE        / Continue multiplication
+        JUMPI   MULT            / Return from subroutine if done
+
+CONTINUE, STORE   N             / Store updated N
+        LOAD    RESULT          / Load current result
+        ADD     X               / Add X to result
+        STORE   RESULT          / Store updated result
+        JNS     MULT            / Recursive call
+        JUMPI   MULT            / Return from subroutine
+
+/ Data
+X,      DEC     0               / Base number X
+N,      DEC     0               / Number of iterations N
+RESULT, DEC     0               / Result of multiplication
+ZERO,   DEC     0               / Constant 0
+ONE,    DEC     1               / Constant 1
+        END

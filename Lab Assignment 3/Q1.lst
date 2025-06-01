@@ -1,0 +1,29 @@
+     Assembly listing for: Q1.mas
+                Assembled: Mon May 12 21:46:21 EET 2025
+
+         |                          / MARIE program to print the first two letters of the name "Onur"
+         |                          / First letter: O, ASCII: 79 (decimal), 4F (hex)
+         |                          / Second letter: n, ASCII: 110 (decimal), 6E (hex)
+         |                          
+         |         ORG 100          / Start program at address 100
+100 1105 |         LOAD CHAR1       / Load first character (O)
+101 6000 |         OUTPUT           / Display it
+102 1106 |         LOAD CHAR2       / Load second character (n)
+103 6000 |         OUTPUT           / Display it
+104 7000 |         HALT             / End program
+         |                          
+105 004F |  CHAR1  HEX 4F           / ASCII for 'O'
+106 006E |  CHAR2  HEX 6E           / ASCII for 'n'
+         |         END               
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          CHAR1  |   105   | 100
+          CHAR2  |   106   | 102
+         --------------------------------------------------
+
+
